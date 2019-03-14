@@ -1,0 +1,47 @@
+﻿
+@model LambdaForums.Models.Forum.ForumTopicModel
+
+<h1>Welocome to the @Model.Forum.Name Forum!</h1>
+
+
+@if (Model.Posts.Any())
+{
+    <tabe class="table-bordered table-hover"  >
+        <tbody>
+            @foreach(var post in Model.Posts)
+            {
+                <tr>
+                    <td>
+                        <a asp-route="Post" asp-action="Index" asp-route-id="@post.Id">
+                            @post.Title
+                        </a>
+                       
+                    </td>
+                    <td>
+                        @post.AuthorName
+                    </td>
+                    <td>
+                        @post.DatePosted
+                    </td>
+                    <td>
+                        @post.RepliesCount
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </tabe>
+}
+else
+{
+    <div class="noPosts well-lg">
+        <h3>
+            It looks like there are no @Model.Forum.Name  posts yet. <br/>
+            Why not 
+            <a asp-controller="Post" asp-action="Create" asp-route-id="@Model.Forum.Id">
+                <span>create</span> 
+            </a>
+            one
+        </h3>
+    </div>
+}
+
