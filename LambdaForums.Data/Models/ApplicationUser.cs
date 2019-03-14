@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace LambdaForums.Data.Models
 {
-    public class ApplicationUser : IdentityUser
-    {
+    public class ApplicationUser : IdentityUser { 
 
     }
 }
