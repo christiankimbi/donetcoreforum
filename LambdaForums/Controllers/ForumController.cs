@@ -48,7 +48,8 @@ namespace LambdaForums.Controllers
             {
                 Id = p.Id,
                 AuthorId = p.User.Id,
-                AuthorRating = p.User.Rating,
+                AuthorName = p.User.UserName,
+                AuthorRating = p.User.Rating.HasValue ? p.User.Rating.Value : 0,
                 Title = p.Title,
                 DatePosted = p.Created.ToString(),
                 RepliesCount = p.Replies.Count(),

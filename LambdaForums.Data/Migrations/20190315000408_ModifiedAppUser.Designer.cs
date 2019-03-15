@@ -4,14 +4,16 @@ using LambdaForums.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LambdaForums.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190315000408_ModifiedAppUser")]
+    partial class ModifiedAppUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,13 +36,13 @@ namespace LambdaForums.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<bool?>("IsActive");
+                    b.Property<bool>("IsActive");
 
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
-                    b.Property<DateTime?>("MemberSince");
+                    b.Property<DateTime>("MemberSince");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -56,7 +58,7 @@ namespace LambdaForums.Data.Migrations
 
                     b.Property<string>("ProfileImageUrl");
 
-                    b.Property<int?>("Rating");
+                    b.Property<int>("Rating");
 
                     b.Property<string>("SecurityStamp");
 
