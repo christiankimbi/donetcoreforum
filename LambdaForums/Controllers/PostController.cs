@@ -40,9 +40,18 @@ namespace LambdaForums.Controllers
                 AuthorRating = post.User.Rating.HasValue? post.User.Rating.Value : 0,
                 Created = post.Created,
                 PostContent = post.Content,
-                Replies = replies
+                Replies = replies,
+                ForumId = post.Forum.Id,
+                ForumName = post.Forum.Title,
+                IsAuthorAdmin = IsAuthorAdmin(post.User)
             };
             return View(model);
+        }
+
+        private bool IsAuthorAdmin(ApplicationUser user)
+        {
+            return _userManager.GetRolesAsync(user)
+                       .Result.Contains("Admin");
         }
 
         public IActionResult create(int id)
@@ -101,8 +110,8 @@ namespace LambdaForums.Controllers
                 AuthorName = p.User.UserName,
                 AuthorImageUrl = p.User.ProfileImageUrl,
                 AuthorRating = (int) p.User.Rating,
-                PostId = p.Post.Id
-               
+                PostId = p.Post.Id,
+                IsAuthorAdmin = IsAuthorAdmin(p.User)
 
             });
         }
