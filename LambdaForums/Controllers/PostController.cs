@@ -101,17 +101,17 @@ namespace LambdaForums.Controllers
 
         private IEnumerable<PostReplyModel> builPostRepliesModel(IEnumerable<PostReply> replies)
         {
-            return replies.Select(p => new PostReplyModel() {
+            return replies.Select(reply => new PostReplyModel() {
 
-                Id = p.Id,
-                ReplyContent = p.Content,
-                Created = p.Created,
-                AuthorId = p.User.Id,
-                AuthorName = p.User.UserName,
-                AuthorImageUrl = p.User.ProfileImageUrl,
-                AuthorRating = (int) p.User.Rating,
-                PostId = p.Post.Id,
-                IsAuthorAdmin = IsAuthorAdmin(p.User)
+                Id = reply.Id,
+                ReplyContent = reply.Content,
+                Created = reply.Created,
+                AuthorId = reply.User.Id,
+                AuthorName = reply.User.UserName,
+                AuthorImageUrl = reply.User.ProfileImageUrl,
+                AuthorRating = (int) reply.User.Rating,
+                PostId = reply.Post.Id,
+                IsAuthorAdmin = IsAuthorAdmin(reply.User)
 
             });
         }

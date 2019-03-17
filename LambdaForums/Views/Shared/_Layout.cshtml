@@ -56,10 +56,10 @@
 
                 @if (!SignInManager.IsSignedIn(User))
                 {
-                    <ul class="nav navbar navbar-nav navbar-right">
-                        <li><a asp-controller="Account" asp-action="Login">Sign In</a></li>
-                        <li><a asp-controller="Account" asp-action="Register">Register</a></li>
-                    </ul>
+                <ul class="nav navbar navbar-nav navbar-right">
+                    <li><a asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+                    <li><a asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+                </ul>
 
                 }
 
