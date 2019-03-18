@@ -125,6 +125,24 @@ body {
     margin: 4px 0 16px 0;
 }
 
+
+/* Forum Topics Page */
+
+.searchBar{
+    padding: 3px 5px 2px 12px;
+    margin: 8px;
+    background-color: #333;
+    width: 10%;
+    transition:  ease 0.3s;
+    border: none;
+}
+
+    .searchBar:focus{
+        color: black;
+        width: 60%;
+        background-color: #fff;
+    }
+
 /* Post Page*/
 .postTitle {
     font-family: Roboto;
@@ -262,6 +280,14 @@ body {
         border-radius: 0px !important;
     }
 
+    .btn-forumSearch{
+        background: none !important;
+        border: none;
+        padding: 0!important;
+        font: inherit;
+    }
+
+
 /* Forum Index */
         #forumIndexTable td {
             background-color: rgba(255,255,255, 0.9);
@@ -334,7 +360,7 @@ body {
     padding: 24px;
 }
 
-
+/* Wrappers*/
 
 .body-content {
     padding-left: 15px;

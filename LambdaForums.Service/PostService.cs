@@ -53,12 +53,14 @@ namespace LambdaForums.Service
                 .FirstOrDefault();
         }
 
-        public IEnumerable<Post> GetFilteredPosts(string searchQuery)
+        public IEnumerable<Post> GetFilteredPosts(Forum forum, string searchQuery)
         {
-            throw new NotImplementedException();
+            return string.IsNullOrEmpty(searchQuery) ? forum.Posts :
+                forum.Posts
+                .Where(p => 
+                p.Title.ToLower().Contains(searchQuery.ToLower()) 
+                || p.Content.ToLower().Contains(searchQuery.ToLower()));
         }
-
-
 
         public IEnumerable<Post> GetPostsByForum(int id)
         {
