@@ -50,11 +50,5 @@ namespace LambdaForums.Controllers
             };
 
         }
-
-        [HttpPost]
-        public IActionResult Search(string searchQuery)
-        {
-            return RedirectToAction("Topic", "Forum", new { searchQuery });
-        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using LambdaForums.Data;
 using LambdaForums.Data.Models;
+using LambdaForums.Helpers;
 using LambdaForums.Models.Forum;
 using LambdaForums.Models.Post;
 using Microsoft.AspNetCore.Mvc;
@@ -65,14 +66,14 @@ namespace LambdaForums.Controllers
                 Title = p.Title,
                 DatePosted = p.Created.ToString(),
                 RepliesCount = p.Replies.Count(),
-                Forum = BuildForumListing(p)
-                
+                Forum = ModelHelper.BuildForumListing(p)
+               
             });
 
             var model = new ForumTopicModel()
             {
                 Posts = postListings,
-                Forum = BuildForumListing(forum)
+                Forum = ModelHelper.BuildForumListing(forum)
             };
 
             return View(model);
@@ -86,23 +87,7 @@ namespace LambdaForums.Controllers
         }
 
 
-        private ForumListingModel BuildForumListing(Post post)
-        {
-            var forum = post.Forum;
-            return BuildForumListing(forum);
-        }
-
-        private ForumListingModel BuildForumListing(Forum forum)
-        {
-            
-            return new ForumListingModel()
-            {
-                Id = forum.Id,
-                Name = forum.Title,
-                Description = forum.Description,
-                ImageUrl = forum.ImageUrl
-            };
-        }
+       
 
     }
 }

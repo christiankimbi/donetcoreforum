@@ -42,6 +42,7 @@ namespace LambdaForums.Service
                     .ThenInclude(r => r.User);
         }
 
+
         public Post GetById(int id)
         {
             return _context.Posts
@@ -60,6 +61,16 @@ namespace LambdaForums.Service
                 .Where(p => 
                 p.Title.ToLower().Contains(searchQuery.ToLower()) 
                 || p.Content.ToLower().Contains(searchQuery.ToLower()));
+        }
+
+        public IEnumerable<Post> GetFilteredPosts(string searchQuery)
+        {
+            var posts = GetAll().ToList()
+            .Where(p =>
+              p.Title.ToLower().Contains(searchQuery.ToLower())
+              || p.Content.ToLower().Contains(searchQuery.ToLower()));
+
+            return posts;
         }
 
         public IEnumerable<Post> GetPostsByForum(int id)

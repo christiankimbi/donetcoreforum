@@ -1,24 +1,35 @@
 ﻿
 @model LambdaForums.Models.Forum.ForumIndexModel
 
-<h1>Forums</h1>
+<div class="container body-content">
+    <div class="row sectionHeader">
 
-<table class="table table-bordered table-hover" id="forumIndexTable">
-    
-    <tbody>
-    @foreach (var forum in Model.ForumList)
-    {
-        <tr>
-            <td>
-                <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">
-                    @forum.Name
-                </a>
-               
-            </td>
-            <td>
-                @forum.Description
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+        <span>Forums</span>
+
+    </div>
+
+    <div class="row forumIndexContent">
+
+        <table class="table table-bordered table-hover" id="forumIndexTable">
+
+            <tbody>
+                @foreach (var forum in Model.ForumList)
+                {
+                    <tr>
+                        <td>
+                            <a asp-controller="Forum" asp-action="Topic" asp-route-id="@forum.Id">
+                                @forum.Name
+                            </a>
+
+                        </td>
+                        <td>
+                            @forum.Description
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

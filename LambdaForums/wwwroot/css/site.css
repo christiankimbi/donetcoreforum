@@ -31,6 +31,7 @@ body {
 .sectionHeader {
     background-color: rgba(0,0,0,0.9);
     padding: 8px 0 24px 24px;
+    color: #fff;
 }
 
 .sectionHeading {
@@ -59,7 +60,6 @@ body {
     background-image: url("/images/theme/front-splash.jpg");
     background-repeat: no-repeat;
     background-position: right;
-    margin-top: 50px;
 }
 
 .frontPageLearn {
@@ -359,6 +359,13 @@ body {
     background-color: #fff;
     padding: 24px;
 }
+
+/* Search */
+
+#searchIndexTable td {
+    background-color: rgba(255,255,255, 0.9);
+}
+
 
 /* Wrappers*/
 
