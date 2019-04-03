@@ -56,5 +56,10 @@ namespace LambdaForums.Service
         {
             throw new NotImplementedException();
         }
+
+        IEnumerable<ApplicationUser> IForum.GetAllActiveUsers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
